@@ -1,14 +1,6 @@
 <?php
 // Includo il file data.php
 include 'data.php';
-
-foreach ($hotels as $hotel) {
-    echo "Nome: " . $hotel['name'] . "<br>";
-    echo "Descrizione: " . $hotel['description'] . "<br>";
-    echo "Parcheggio disponibile: " . ($hotel['parking'] ? 'Sì' : 'No') . "<br>";
-    echo "Voto: " . $hotel['vote'] . "<br>";
-    echo "Distanza dal centro: " . $hotel['distance_to_center'] . " km<br><br>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +25,17 @@ foreach ($hotels as $hotel) {
                 </tr>
             </thead>
             <tbody>
+            <?php
+                foreach ($hotels as $hotel) {
+                    echo "<tr>";
+                    echo "<td>" . $hotel['name'] . "</td>";
+                    echo "<td>" . $hotel['description'] . "</td>";
+                    echo "<td>" . ($hotel['parking'] ? 'Yes' : 'No') . "</td>";
+                    echo "<td>" . $hotel['vote'] . "</td>";
+                    echo "<td>" . $hotel['distance_to_center'] . " km</td>";
+                    echo "</tr>";
+                }
+                ?>
             </tbody>
         </table>
     </div>
